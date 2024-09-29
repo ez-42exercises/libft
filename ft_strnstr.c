@@ -1,25 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pgaona-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/13 19:38:52 by pgaona-a          #+#    #+#             */
-/*   Updated: 2024/09/29 15:13:24 by pgaona-a         ###   ########.fr       */
+/*   Created: 2024/09/21 18:19:36 by pgaona-a          #+#    #+#             */
+/*   Updated: 2024/09/21 19:50:57 by pgaona-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+char	*strnstr(const char *big, const char *little, size_t len)
 {
-	int	i;
+	unsigned int		i;
+	char				*ocurrence;
 
 	i = 0;
-	while (s[i] != '\0')
+	if (little[0] == '\0')
+		return ((char *)big);
+	while (big[i] != little[i] && i < len)
 	{
 		i++;
 	}
-	return (i);
+	if (big[i] == little[i])
+		ocurrence = (char *)big + i;
+	else
+		return (NULL);
+	while (big[i] == little[i] && i < len
+		&& big[i] != '\0' && little[i] != '\0')
+	{
+		i++;
+	}
+	if (little[i] == '\0')
+		return (ocurrence);
+	return (NULL);
 }

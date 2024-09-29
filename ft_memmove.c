@@ -6,21 +6,23 @@
 /*   By: pgaona-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 20:11:16 by pgaona-a          #+#    #+#             */
-/*   Updated: 2024/09/13 20:34:48 by pgaona-a         ###   ########.fr       */
+/*   Updated: 2024/09/29 16:27:02 by pgaona-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*memmove(void *dest, const void *src, size_t n)
+#include "libft.h"
+
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	int	i;
+	unsigned long int	i;
 
 	if (dest > src)
 	{
-		i = n - 1;
-		while (i >= 0)
+		i = n;
+		while (i > 0)
 		{
-			*(dest + i) = *(src + i);
 			i--;
+			*(char *)(dest + i) = *(char *)(src + i);
 		}
 	}
 	else
@@ -28,7 +30,7 @@ void	*memmove(void *dest, const void *src, size_t n)
 		i = 0;
 		while (i < n)
 		{
-			*(dest + i) = *(src + i);
+			*(char *)(dest + i) = *(char *)(src + i);
 			i++;
 		}
 	}

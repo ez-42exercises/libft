@@ -6,18 +6,21 @@
 /*   By: pgaona-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 20:02:31 by pgaona-a          #+#    #+#             */
-/*   Updated: 2024/09/13 20:04:53 by pgaona-a         ###   ########.fr       */
+/*   Updated: 2024/09/29 16:11:28 by pgaona-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*memcpy(void *dest, const void *src, size_t n)
+#include "libft.h"
+
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	int	i;
+	long unsigned int	i;
 
 	i = 0;
 	while (i < n)
 	{
-		*(dest + i) = *(src + i);
+		*(char *)(dest + i) = *(char *)(src + i);
 		i++;
 	}
+	return (dest);
 }

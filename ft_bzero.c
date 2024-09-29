@@ -6,18 +6,20 @@
 /*   By: pgaona-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 19:58:57 by pgaona-a          #+#    #+#             */
-/*   Updated: 2024/09/13 20:05:28 by pgaona-a         ###   ########.fr       */
+/*   Updated: 2024/09/15 20:01:56 by pgaona-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 void	ft_bzero(void *s, size_t n)
 {
-	int	i;
+	long unsigned int	i;
 
 	i = 0;
 	while (i < n)
 	{
-		*(s + i) = '\0';
+		*(char *)(s + i) = '\0';
 		i++;
 	}
 }

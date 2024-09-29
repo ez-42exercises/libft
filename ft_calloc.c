@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pgaona-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/13 19:38:52 by pgaona-a          #+#    #+#             */
-/*   Updated: 2024/09/29 15:13:24 by pgaona-a         ###   ########.fr       */
+/*   Created: 2024/09/21 19:28:10 by pgaona-a          #+#    #+#             */
+/*   Updated: 2024/09/21 19:53:03 by pgaona-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+void	*calloc(size_t nemb, size_t size)
 {
-	int	i;
+	unsigned long long	size_check;
 
-	i = 0;
-	while (s[i] != '\0')
-	{
-		i++;
-	}
-	return (i);
+	size_check = nemb * size;
+	if (size_check > 2147483647)
+		return (NULL);
+	if (nemb == 0 || size == 0)
+		return (NULL);
+	return (malloc(nemb * size));
 }

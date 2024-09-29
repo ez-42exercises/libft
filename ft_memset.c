@@ -6,18 +6,21 @@
 /*   By: pgaona-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 19:53:04 by pgaona-a          #+#    #+#             */
-/*   Updated: 2024/09/13 19:56:10 by pgaona-a         ###   ########.fr       */
+/*   Updated: 2024/09/15 20:26:25 by pgaona-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 void	*ft_memset(void *s, int c, size_t n)
 {
-	int	i;
+	long unsigned int	i;
 
 	i = 0;
 	while (i < n)
 	{
-		*(s + i) = c;
+		*(char *)(s + i) = c;
 		i++;
 	}
+	return (s);
 }
