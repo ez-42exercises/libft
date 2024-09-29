@@ -6,11 +6,11 @@
 /*   By: pgaona-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 00:24:44 by pgaona-a          #+#    #+#             */
-/*   Updated: 2024/09/16 00:39:17 by pgaona-a         ###   ########.fr       */
+/*   Updated: 2024/09/29 22:42:58 by pgaona-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*strchr(const char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
 	int		i;
 	char	*temp;

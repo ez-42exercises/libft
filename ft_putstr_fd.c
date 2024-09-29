@@ -1,41 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pgaona-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/15 23:51:31 by pgaona-a          #+#    #+#             */
-/*   Updated: 2024/09/29 22:42:36 by pgaona-a         ###   ########.fr       */
+/*   Created: 2024/09/29 22:31:22 by pgaona-a          #+#    #+#             */
+/*   Updated: 2024/09/29 22:32:11 by pgaona-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+void ft_putstr_fd(char *s, int fd)
 {
-	size_t	i;
-	size_t	dst_len;
-
-	i = 0;
-	dst_len = 0;
-	while (dst[i] != '\0')
-	{
-		dst_len++;
-		i++;
-	}
-	i = 0;
-	while (dst[i] != '\0')
-	{
-		i++;
-	}
-	dst_len = i;
-	while (i < (size - dst_len) - 1 && src[i] != '\0')
-	{
-		dst[i] = src[i];
-		dst_len++;
-		i++;
-	}
-	dst[i] = '\0';
-	return (dst_len);
+	write(fd, s, ft_strlen(s));
 }

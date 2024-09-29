@@ -6,11 +6,11 @@
 /*   By: pgaona-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 00:31:01 by pgaona-a          #+#    #+#             */
-/*   Updated: 2024/09/21 17:52:35 by pgaona-a         ###   ########.fr       */
+/*   Updated: 2024/09/29 22:43:14 by pgaona-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*strrchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
 	int			i;
 	const char	*found = 0;

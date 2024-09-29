@@ -6,13 +6,13 @@
 /*   By: pgaona-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/21 18:19:36 by pgaona-a          #+#    #+#             */
-/*   Updated: 2024/09/21 19:50:57 by pgaona-a         ###   ########.fr       */
+/*   Updated: 2024/09/29 22:43:54 by pgaona-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*strnstr(const char *big, const char *little, size_t len)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	unsigned int		i;
 	char				*ocurrence;

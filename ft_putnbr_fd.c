@@ -1,41 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pgaona-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/15 23:51:31 by pgaona-a          #+#    #+#             */
-/*   Updated: 2024/09/29 22:42:36 by pgaona-a         ###   ########.fr       */
+/*   Created: 2024/09/29 22:34:47 by pgaona-a          #+#    #+#             */
+/*   Updated: 2024/09/29 22:35:53 by pgaona-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+void ft_putnbr_fd(int n, int fd)
 {
-	size_t	i;
-	size_t	dst_len;
-
-	i = 0;
-	dst_len = 0;
-	while (dst[i] != '\0')
-	{
-		dst_len++;
-		i++;
-	}
-	i = 0;
-	while (dst[i] != '\0')
-	{
-		i++;
-	}
-	dst_len = i;
-	while (i < (size - dst_len) - 1 && src[i] != '\0')
-	{
-		dst[i] = src[i];
-		dst_len++;
-		i++;
-	}
-	dst[i] = '\0';
-	return (dst_len);
+	char *s = ft_itoa(n);
+	write(fd, s, ft_strlen(s));
 }
