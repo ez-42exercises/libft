@@ -5,10 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pgaona-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/13 17:03:39 by pgaona-a          #+#    #+#             */
-/*   Updated: 2024/09/13 19:22:05 by pgaona-a         ###   ########.fr       */
+/*   Created: 2024/09/29 17:39:13 by pgaona-a          #+#    #+#             */
+/*   Updated: 2024/09/29 17:40:28 by pgaona-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef LIBFT_H
+# define LIBFT_H
+# include <stdlib.h>
+# include <stddef.h>
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -26,8 +31,13 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
-int		strncmp(const char *s1, const char *s2, size_t n);
-void	*memchr(const void *s, int c, size_t n);
-int		memcmp(const void *s1, const void *s2, size_t n);
-char	*strnstr(const char *big, const char *little, size_t len);
-int		atoi(const char *nptr);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
+void	*ft_memchr(const void *s, int c, size_t n);
+int		ft_memcmp(const void *s1, const void *s2, size_t n);
+char	*ft_strnstr(const char *big, const char *little, size_t len);
+int		ft_atoi(const char *nptr);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strtrim(char const *s1, char const *set);
+
+#endif
