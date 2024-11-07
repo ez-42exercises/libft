@@ -20,15 +20,16 @@ static unsigned int	num_chars_in_string(char c, const char *str)
 	i = 0;
 	while (str[i] != '\0')
 	{
-		if(str[i] == c)
+		if (str[i] == c)
 			count++;
 	}
 	return (count);
 }
 
-static char	*locate_pos_num_char(unsigned int pos, char c, const char *str){
-	unsigned int numpos;
-	char *dst;
+static char	*locate_pos_num_char(unsigned int pos, char c, const char *str)
+{
+	unsigned int 	numpos;
+	char 			*dst;
 
 	dst = (char *)str;
 	numpos = 0;
@@ -42,13 +43,13 @@ static char	*locate_pos_num_char(unsigned int pos, char c, const char *str){
 
 char	**ft_split(char const *s, char c)
 {
-	char **splits;
-	int sizesplit;
-	unsigned int numpos;
-	unsigned int index;
+	char			**splits;
+	int				sizesplit;
+	unsigned int 	numpos;
+	unsigned int 	index;
 
 	splits = malloc(num_chars_in_string(c,s) + 3 * sizeof(char *));
-	while(numpos < num_chars_in_string(c,s) + 2)
+	while (numpos < num_chars_in_string(c,s) + 2)
 	{
 		sizesplit = (unsigned int)(locate_pos_num_char(numpos+1,c,s)
 					- locate_pos_num_char(numpos,c,s));
