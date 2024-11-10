@@ -12,19 +12,19 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int			i;
-	const char	*found = 0;
+	int		i;
+	char	*found = 0;
 
 	i = 0;
 	while (s[i] != '\0')
 	{
 		if (s[i] == c)
 		{
-			found = found + i;
+			found = (char *)s+i;
 		}
 		i++;
 	}
 	if (s[i] == '\0' && c == '\0')
-		found = found + i;
-	return ((char *)found);
+		found = (char *)(s + i);
+	return (found);
 }
