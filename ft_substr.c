@@ -20,6 +20,66 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_s = ft_strlen(s);
 	dst = malloc((size_s - start + 1) * sizeof(char));
 	if (dst != NULL)
-		ft_strlcpy(dst, s + start, len);
+		ft_strlcpy(dst, s + start, len + 1);
 	return (dst);
 }
+
+// #include <stdio.h>
+// #include <string.h>
+// #include <stdlib.h>
+// #include <stddef.h>
+
+// int main(){
+// 	char *result;
+// 	char *str = "abcdefg";
+
+// 	// Test Case 1: Start at the beginning of the string
+// 	result = ft_substr(str, 0, 3);
+// 	printf("Test 1: Result=%s\n", result); // Expected Result: "abc"
+// 	free(result);
+
+// 	// Test Case 2: Start at the middle of the string
+// 	result = ft_substr(str, 2, 3);
+// 	printf("Test 2: Result=%s\n", result); // Expected Result: "cde"
+// 	free(result);
+
+// 	// Test Case 3: Start at the end of the string
+// 	result = ft_substr(str, 4, 3);
+// 	printf("Test 3: Result=%s\n", result); // Expected Result: "efg"
+// 	free(result);
+
+// 	// Test Case 3: Start at the end of the string
+// 	result = ft_substr(str, 4, 10);
+// 	printf("Test 3: Result=%s\n", result); // Expected Result: "efg"
+// 	free(result);
+
+// 	// Test Case 4: Start at the end of the string
+// 	result = ft_substr(str, 5, 3);
+// 	printf("Test 4: Result=%s\n", result); // Expected Result: "fg"
+// 	free(result);
+
+// 	// Test Case 5: Start at the end of the string
+// 	result = ft_substr(str, 6, 3);
+// 	printf("Test 5: Result=%s\n", result); // Expected Result: "g"
+// 	free(result);
+
+// 	// Test Case 5: Start at the end of the string
+// 	result = ft_substr(str, 7, 3);
+// 	printf("Test 5: Result=%s\n", result); // Expected Result: ""
+// 	free(result);
+
+// 	// Test Case 6: Start
+// 	result = ft_substr(str, 0, 0);
+// 	printf("Test 6: Result=%s\n", result); // Expected Result: ""
+// 	free(result);
+
+// 	// Test Case 6: Start
+// 	result = ft_substr(str, 4, 0);
+// 	printf("Test 6: Result=%s\n", result); // Expected Result: ""
+// 	free(result);
+
+// 	// Test Case 6: Start
+// 	result = ft_substr(str, 0, 12);
+// 	printf("Test 6: Result=%s\n", result); // Expected Result: "abcdefg"
+// 	free(result);
+// }

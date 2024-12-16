@@ -18,6 +18,7 @@ static unsigned int	num_chars_in_string(char c, const char *str)
 	unsigned int	count;
 
 	i = 0;
+	count = 0;
 	while (str[i] != '\0')
 	{
 		if (str[i] == c)
@@ -48,6 +49,7 @@ char	**ft_split(char const *s, char c)
 	unsigned int 	numpos;
 	unsigned int 	index;
 
+	numpos = 0;
 	splits = malloc(num_chars_in_string(c,s) + 3 * sizeof(char *));
 	while (numpos < num_chars_in_string(c,s) + 2)
 	{

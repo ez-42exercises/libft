@@ -35,14 +35,14 @@ char	*ft_strchr(const char *s, int c)
 
 // int main(){
 // 	char *result;
-// 	char *str = "Hello World";
+// 	char *str = "teste";
 
 // 	// Test Case 1: Character found
-// 	result = ft_strchr(str, 'W');
+// 	result = ft_strchr(str, 'e');
 // 	printf("Test 1: Result=%s\n", result);
 
 // 	// Test Case 2: Character not found
-// 	result = ft_strchr(str, 'w');
+// 	result = ft_strchr(str, 'z');
 // 	printf("Test 2: Result=%s\n", result);
 
 // 	// Test Case 3: Character at the end of the string

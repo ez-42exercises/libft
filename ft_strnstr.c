@@ -27,22 +27,48 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	char				*ocurrence;
 
 	i = 0;
-	if (little[0] == '\0')
+	if (little == NULL || little[0] == '\0')
 		return ((char *)big);
-	while (i < len && big[i] != little[i])
+	while (i < len && big[i] != little[0] && big[i] != '\0')
 	{
 		i++;
 	}
-	if (big[i] == little[i])
-		ocurrence = (char *)big + i;
+	if (big[i] == little[0])
+		ocurrence = (char *)(big + i);
 	else
 		return (NULL);
-	while (i < len && big[i] == little[i]
-		&& big[i] != '\0' && little[i] != '\0')
+	i=0;
+	while (i < len && *(ocurrence+i) == little[i]
+		&& *(ocurrence+i) != '\0' && little[i] != '\0')
 	{
 		i++;
 	}
 	if (little[i] == '\0')
 		return (ocurrence);
 	return (NULL);
+}
+
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <stddef.h>
+
+int main(){
+	char *result;
+	char big[] = "lorem ipsum dolor sit amet";
+	char little[] = "dolor";
+
+	result = ft_strnstr(big, little, 4);
+	printf("Test 1: Result=%s Expected=%s\n", result, "la");
+
+	char big2[] = "hola";
+	char little2[] = "a";
+	result = ft_strnstr(big2, little2, 4);
+	printf("Test 2: Result=%s Expected=%s\n", result, "a");
+
+	char big3[] = "holapedusa";
+	char little3[] = "lo";
+	result = ft_strnstr(big3, little3, 15);
+	printf("Test 3: Result=%s Expected=%s\n", result, "(null)");
+
 }
