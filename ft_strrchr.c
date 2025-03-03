@@ -13,14 +13,15 @@
 char	*ft_strrchr(const char *s, int c)
 {
 	int		i;
-	char	*found = 0;
+	char	*found;
 
+	found = 0;
 	i = 0;
 	while (s[i] != '\0')
 	{
 		if (s[i] == c)
 		{
-			found = (char *)s+i;
+			found = (char *)s + i;
 		}
 		i++;
 	}
