@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pgaona-a <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: pgaona-a <pgaona-a@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 17:39:13 by pgaona-a          #+#    #+#             */
-/*   Updated: 2024/09/29 17:40:28 by pgaona-a         ###   ########.fr       */
+/*   Updated: 2025/03/04 01:36:54 by pgaona-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,12 @@
 # define LIBFT_H
 # include <stdlib.h>
 # include <stddef.h>
+
+typedef struct s_list
+{
+    void *content;
+    struct s_list *next;
+}   t_list;
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -39,5 +45,7 @@ int		ft_atoi(const char *nptr);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
+void	ft_lstadd_front(t_list **alst, t_list *new);
+void	ft_lstadd_front(t_list **lst, t_list *new);
 
 #endif
