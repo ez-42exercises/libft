@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pgaona-a <pgaona-a@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: pgaona-a <pgaona-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 00:24:44 by pgaona-a          #+#    #+#             */
-/*   Updated: 2025/03/04 02:16:26 by pgaona-a         ###   ########.fr       */
+/*   Updated: 2025/03/04 20:19:23 by pgaona-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ char	*ft_strchr(const char *s, int c)
 	temp = (char *)s;
 	while (temp[i] != '\0')
 	{
-		if (temp[i] == c)
+		if (temp[i] == (unsigned char)c)
 			return ((char *)(temp + i));
 		i++;
 	}
-	if (c == '\0' && temp[i] == '\0')
+	if ((unsigned char)c == '\0' && temp[i] == '\0')
 		return ((char *)(temp + i));
 	return (0);
 }

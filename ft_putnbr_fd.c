@@ -6,7 +6,7 @@
 /*   By: pgaona-a <pgaona-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 22:34:47 by pgaona-a          #+#    #+#             */
-/*   Updated: 2025/03/04 19:05:33 by pgaona-a         ###   ########.fr       */
+/*   Updated: 2025/03/04 19:45:35 by pgaona-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
+	char	c;
+
 	if (n == -2147483648)
 		write(fd, "-2147483648", 11);
 	else
@@ -25,7 +27,7 @@ void	ft_putnbr_fd(int n, int fd)
 		}
 		if (n >= 10)
 			ft_putnbr_fd(n / 10, fd);
-		char c = n % 10 + '0';
+		c = n % 10 + '0';
 		write(fd, &c, 1);
 	}
 }

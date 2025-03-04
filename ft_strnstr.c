@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pgaona-a <pgaona-a@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: pgaona-a <pgaona-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/21 18:19:36 by pgaona-a          #+#    #+#             */
-/*   Updated: 2025/03/04 02:16:41 by pgaona-a         ###   ########.fr       */
+/*   Updated: 2025/03/04 19:42:29 by pgaona-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,20 +23,22 @@ occurrence of little is returned.
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	unsigned int	i;
+	size_t	i;
+	size_t	j;
 
-	i = 0;
-	if (little == NULL || little[0] == '\0')
-	{
+	if (!big && len == 0)
+		return (NULL);
+	if (little[0] == '\0')
 		return ((char *)big);
-	}
-	while (i < len && i < ft_strlen(big) && big[i] != '\0')
+	i = 0;
+	while (big[i] != '\0' && i < len)
 	{
-		if (big[i] == little[0])
+		j = 0;
+		while (big[i + j] == little[j] && (i + j) < len)
 		{
-			if (i + ft_strlen(little) <= len
-				&& ft_strncmp(big + i, little, ft_strlen(little)) == 0)
-				return ((char *)(big + i));
+			if (little[j + 1] == '\0')
+				return ((char *)&big[i]);
+			j++;
 		}
 		i++;
 	}

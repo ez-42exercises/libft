@@ -3,20 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pgaona-a <pgaona-a@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: pgaona-a <pgaona-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 22:27:16 by pgaona-a          #+#    #+#             */
-/*   Updated: 2025/03/04 02:16:31 by pgaona-a         ###   ########.fr       */
+/*   Updated: 2025/03/04 19:57:43 by pgaona-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void ft_striteri(char *s, void (*f)(unsigned int, char*)){
-	int i;
+#include "libft.h"
 
-	i=0;
-	while(i < ft_strlen(s))
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+{
+	long unsigned int	i;
+
+	i = 0;
+	while (i < ft_strlen(s))
 	{
-		f(i, s+i);
+		f(i, s + i);
 		i++;
 	}
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pgaona-a <pgaona-a@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: pgaona-a <pgaona-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 00:31:01 by pgaona-a          #+#    #+#             */
-/*   Updated: 2025/03/04 02:16:43 by pgaona-a         ###   ########.fr       */
+/*   Updated: 2025/03/04 20:21:46 by pgaona-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ char	*ft_strrchr(const char *s, int c)
 	i = 0;
 	while (s[i] != '\0')
 	{
-		if (s[i] == c)
+		if ((unsigned char)s[i] == (unsigned char)c)
 		{
 			found = (char *)s + i;
 		}
 		i++;
 	}
-	if (s[i] == '\0' && c == '\0')
-		found = (char *)(s + i);
+	if (c == '\0')
+		return ((char *)(s + i));
 	return (found);
 }

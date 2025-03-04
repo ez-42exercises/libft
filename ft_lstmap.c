@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pgaona-a <pgaona-a@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: pgaona-a <pgaona-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 02:00:54 by pgaona-a          #+#    #+#             */
-/*   Updated: 2025/03/04 02:07:32 by pgaona-a         ###   ########.fr       */
+/*   Updated: 2025/03/04 20:14:15 by pgaona-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *),
 	while (lst != NULL)
 	{
 		new_content = f(lst->content);
-		new_elem = ft_lstnew(f(lst->content));
+		new_elem = ft_lstnew(new_content);
 		if (new_elem == NULL)
 		{
 			if (del != NULL)
