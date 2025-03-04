@@ -31,10 +31,16 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 
+bonus:
+	$(CC) $(CFLAGS) -c ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
+		ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
+	ar rcs $(NAME) ft_lstnew.o ft_lstadd_front.o ft_lstsize.o ft_lstlast.o \
+		ft_lstadd_back.o ft_lstdelone.o ft_lstclear.o ft_lstiter.o ft_lstmap.o
+
 main:
 	$(CC) $(CFLAGS) -o libft_main
 
 re: fclean all
 
 # Because this names aren't files, you need to specify it like this:
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus 
