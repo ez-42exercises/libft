@@ -3,23 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pgaona-a <pgaona-a@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: pgaona-a <pgaona-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 22:23:47 by pgaona-a          #+#    #+#             */
-/*   Updated: 2025/03/04 02:16:38 by pgaona-a         ###   ########.fr       */
+/*   Updated: 2025/03/04 19:33:45 by pgaona-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char *ft_strmapi(char const *s, char (*f)(unsigned int, char)){
-	int		i;
-	char	*dst;
-	
-	dst = malloc((ft_strlen(s)+1)*sizeof(char));
-	i=0;
-	while(i < ft_strlen(s))
+#include "libft.h"
+
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+{
+	unsigned int	len;
+	char			*str;
+	unsigned int	nbr;
+
+	nbr = 0;
+	if (s == NULL || f == NULL)
+		return (NULL);
+	len = ft_strlen((char *)s);
+	str = (char *)malloc(sizeof(char) * (len + 1));
+	if (!str)
+		return (NULL);
+	while (s[nbr] != '\0')
 	{
-		s[i]=*f(i,s[i]);
-		i++;
+		str[nbr] = f(nbr, s[nbr]);
+		nbr++;
 	}
-	return (dst);
+	str[nbr] = '\0';
+	return (str);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pgaona-a <pgaona-a@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: pgaona-a <pgaona-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/21 22:07:20 by pgaona-a          #+#    #+#             */
-/*   Updated: 2025/03/04 02:16:46 by pgaona-a         ###   ########.fr       */
+/*   Updated: 2025/03/04 19:34:25 by pgaona-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,12 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	unsigned int	size_s;
 	char			*dst;
 
+	if (s == NULL)
+		return (NULL);
 	size_s = ft_strlen(s);
-	dst = malloc((size_s - start + 1) * sizeof(char));
+	if (start >= size_s)
+		return (ft_strdup(""));
+	dst = malloc((len + 1) * sizeof(char));
 	if (dst != NULL)
 		ft_strlcpy(dst, s + start, len + 1);
 	return (dst);

@@ -6,53 +6,55 @@
 /*   By: pgaona-a <pgaona-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 20:45:25 by pgaona-a          #+#    #+#             */
-/*   Updated: 2025/03/04 19:09:46 by pgaona-a         ###   ########.fr       */
+/*   Updated: 2025/03/04 19:33:17 by pgaona-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static unsigned int num_digits(int n)
+static unsigned int	num_digits(long n)
 {
-	unsigned int num_digits;
+	unsigned int	count;
 
-	num_digits = 0;
-	if(n < 0)
+	if (n == 0)
+		return (1);
+	count = 0;
+	if (n < 0)
 	{
-		num_digits++;
 		n = -n;
+		count++;
 	}
-	while(n >= 10)
+	while (n > 0)
 	{
-		n = n/10;
-		num_digits++;
+		n /= 10;
+		count++;
 	}
-	return (num_digits + 1);
+	return (count);
 }
 
-char *ft_itoa(int n)
+char	*ft_itoa(int n)
 {
-	char *dst;
-	int index;
-	int sign;
+	long			nb;
+	char			*dst;
+	unsigned int	len;
 
-	sign = n;
-	index = num_digits(n);
-	dst = malloc((num_digits(n) + 1)*sizeof(char));
-	if(sign < 0)
-		dst[0] = '-';
-	dst[index] = '\0';
-	if(n < 0)
+	nb = n;
+	len = num_digits(nb);
+	dst = malloc(sizeof(char) * (len + 1));
+	if (!dst)
+		return (NULL);
+	dst[len] = '\0';
+	if (nb == 0)
+		dst[0] = '0';
+	if (nb < 0)
 	{
 		dst[0] = '-';
-		n = -n;
+		nb = -nb;
 	}
-	while(index > 0 && n != 0)
+	while (nb > 0)
 	{
-		dst[--index] = (n % 10) + '0';
-		n = n / 10;
+		dst[--len] = (nb % 10) + '0';
+		nb /= 10;
 	}
-	if(sign < 0)
-		dst[0]='-';
-	return dst;
+	return (dst);
 }
