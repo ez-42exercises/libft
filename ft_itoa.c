@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pgaona-a <pgaona-a@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: pgaona-a <pgaona-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 20:45:25 by pgaona-a          #+#    #+#             */
-/*   Updated: 2025/03/04 02:15:58 by pgaona-a         ###   ########.fr       */
+/*   Updated: 2025/03/04 19:09:46 by pgaona-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stdio.h"
-#include "stdlib.h"
+#include "libft.h"
 
 static unsigned int num_digits(int n)
 {
@@ -42,17 +41,16 @@ char *ft_itoa(int n)
 	dst = malloc((num_digits(n) + 1)*sizeof(char));
 	if(sign < 0)
 		dst[0] = '-';
-	dst[index + 1] = '\0';
+	dst[index] = '\0';
 	if(n < 0)
 	{
 		dst[0] = '-';
 		n = -n;
 	}
-	while(index > 0)
+	while(index > 0 && n != 0)
 	{
-		dst[index - 1] = (n % 10) + '0';
+		dst[--index] = (n % 10) + '0';
 		n = n / 10;
-		index--;
 	}
 	if(sign < 0)
 		dst[0]='-';

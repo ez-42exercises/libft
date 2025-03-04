@@ -29,8 +29,8 @@ static unsigned int	num_chars_in_string(char c, const char *str)
 
 static char	*locate_pos_num_char(unsigned int pos, char c, const char *str)
 {
-	unsigned int 	numpos;
-	char 			*dst;
+	unsigned int	numpos;
+	char			*dst;
 
 	dst = (char *)str;
 	numpos = 0;
@@ -46,20 +46,20 @@ char	**ft_split(char const *s, char c)
 {
 	char			**splits;
 	int				sizesplit;
-	unsigned int 	numpos;
-	unsigned int 	index;
+	unsigned int	numpos;
+	unsigned int	index;
 
 	numpos = 0;
-	splits = malloc(num_chars_in_string(c,s) + 3 * sizeof(char *));
-	while (numpos < num_chars_in_string(c,s) + 2)
+	splits = malloc(num_chars_in_string(c, s) + 3 * sizeof(char *));
+	while (numpos < num_chars_in_string(c, s) + 2)
 	{
-		sizesplit = (unsigned int)(locate_pos_num_char(numpos+1,c,s)
-					- locate_pos_num_char(numpos,c,s));
-		if(sizesplit < 0)
+		sizesplit = (unsigned int)(locate_pos_num_char(numpos + 1, c, s)
+				- locate_pos_num_char(numpos, c, s));
+		if (sizesplit < 0)
 			sizesplit = ft_strlen(locate_pos_num_char(numpos, c, s));
-		index = (unsigned int)(locate_pos_num_char(numpos,c,s) - s);
-		splits[numpos] = ft_substr(locate_pos_num_char(numpos,c,s),
-									index, sizesplit);
+		index = (unsigned int)(locate_pos_num_char(numpos, c, s) - s);
+		splits[numpos] = ft_substr(locate_pos_num_char(numpos, c, s),
+				index, sizesplit);
 		numpos++;
 	}
 	splits[numpos] = NULL;
