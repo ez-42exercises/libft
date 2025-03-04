@@ -1,20 +1,16 @@
-NAMES = ft_isalpha ft_isdigit ft_isalnum ft_isascii ft_isprint ft_strlen \
-		ft_memset ft_bzero ft_memcpy ft_memmove ft_strlcpy ft_strlcat \
-		ft_toupper ft_tolower ft_strchr ft_strrchr ft_strncmp ft_memchr \
-		ft_memcmp ft_strnstr ft_atoi ft_calloc ft_strdup ft_substr \
-		ft_strjoin ft_strtrim ft_split ft_itoa  ft_putchar_fd ft_putstr_fd \
-		ft_putendl_fd ft_putnbr_fd ft_strmapi ft_striteri ft_calloc
+SRCS = ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c ft_memchr.c \
+		ft_memcmp.c ft_strlen.c ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c \
+		ft_isprint.c ft_toupper.c ft_tolower.c ft_strchr.c ft_strrchr.c ft_strncmp.c \
+		ft_strlcpy.c ft_strlcat.c ft_strnstr.c ft_atoi.c ft_calloc.c ft_strdup.c \
+		ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c \
+		ft_putchar_fd.c	ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_striteri.c
+SRCS_B = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c \
+		ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
 
-BONUS_NAMES = ft_lstnew ft_lstadd_front ft_lstsize ft_lstlast \
-			  ft_lstadd_back ft_lstdelone ft_lstclear ft_lstiter ft_lstmap
+OBJS = $(SRCS:.c=.o)
+OBJS_B = $(SRCS_B:.c=.o)
 
-SRCS = $(addsuffix .c, $(NAMES))
-OBJS = $(addsuffix .o, $(NAMES))
-
-BONUS_SRCS = $(addsuffix .c, $(BONUS_NAMES))
-BONUS_OBJS = $(addsuffix .o, $(BONUS_NAMES))
-
-CC = gcc
+CC = cc
 INC_DIR = .
 CFLAGS = -Wall -Wextra -Werror
 CPPFLAGS = -I$(INC_DIR)
@@ -24,29 +20,22 @@ NAME = libft.a
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	ar rcs $(NAME) $(OBJS)
+	ar rcs $@ $^
+	ranlib $@
 
-# This is necessary to generate the .o if there's any...
-# $< means the dependency (.c) and $@ the target (.o) that was given
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJS) $(BONUS_OBJS)
+	rm -f $(OBJS) $(OBJS_B)
 
 fclean: clean
 	rm -f $(NAME)
 
-bonus: $(BONUS_OBJS)
-	ar rcs $(NAME) $(BONUS_OBJS)
-
-	ar rcs $(NAME) ft_lstnew.o ft_lstadd_front.o ft_lstsize.o ft_lstlast.o \
-		ft_lstadd_back.o ft_lstdelone.o ft_lstclear.o ft_lstiter.o ft_lstmap.o
-
-main:
-	$(CC) $(CFLAGS) -o libft_main
+bonus: $(OBJS) $(OBJS_B)
+	ar rcs $(NAME) $(OBJS) $(OBJS_B)
+	ranlib $(NAME)
 
 re: fclean all
 
-# Because this names aren't files, you need to specify it like this:
-.PHONY: all clean fclean re bonus 
+.PHONY: all clean fclean re bonus
